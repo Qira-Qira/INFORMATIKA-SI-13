@@ -1,8 +1,5 @@
 import { notFound } from 'next/navigation'
 
-interface Params {
-  params: { slug: string }
-}
 
 const CARDS = [
   { slug: 'profil-mahasiswa', title: 'Profil Mahasiswa', body: 'Detail profil mahasiswa...' },
@@ -10,8 +7,8 @@ const CARDS = [
   { slug: 'vision-informatika', title: 'Vision Informatika', body: 'Visi dan misi departemen Informatika.' },
 ]
 
-export default function CardPage({ params }: Params) {
-  const { slug } = params
+export default function CardPage({ params }: any) {
+  const { slug } = params as { slug: string }
   const card = CARDS.find((c) => c.slug === slug)
 
   if (!card) return notFound()
