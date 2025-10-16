@@ -14,13 +14,6 @@ export const metadata: Metadata = {
   title: 'INFORMATIKA UISI SI 13',
   description: 'Created By Divisi Website',
   generator: 'QIRA',
-  icons: {
-    icon: [
-      { url: '/logo/logo-if.png', type: 'image/png' },
-      { url: '/logo/logo-if.png', type: 'image/png' }
-    ],
-    apple: '/logo/logo-if.png'
-  }
 }
 
 export default function RootLayout({

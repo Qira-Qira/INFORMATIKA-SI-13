@@ -62,10 +62,10 @@ export default function SiteHeader() {
         {open && (
           <div className="absolute left-0 right-0 top-full bg-brand/80 border-t border-brand-primary/20 md:hidden">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              <a href="#about" className="block py-2 hover:text-brand-primary">About</a>
-              <a href="#projects" className="block py-2 hover:text-brand-primary">Projects</a>
+              <a href="#" className="block py-2 hover:text-brand-primary">Home</a>
+              <a href="#projects" className="block py-2 hover:text-brand-primary">Info</a>
               <a href="#gallery" className="block py-2 hover:text-brand-primary">Gallery</a>
-              <a href="#cta" className="block py-2 hover:text-brand-primary">Hire</a>
+              <a href="#cta" className="block py-2 hover:text-brand-primary">Community</a>
             </div>
           </div>
         )}
