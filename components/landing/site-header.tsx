@@ -27,7 +27,7 @@ export default function SiteHeader() {
           <a href="#" className="hover:text-brand-primary transition-colors">
             Home
           </a>
-          <a href="#projects" className="hover:text-brand-primary transition-colors">
+          <a href="#about" className="hover:text-brand-primary transition-colors">
             Info
           </a>
           <a href="#gallery" className="hover:text-brand-primary transition-colors">
@@ -60,13 +60,13 @@ export default function SiteHeader() {
 
         {/* mobile menu panel */}
         {open && (
-          <div className="absolute left-0 right-0 top-full bg-brand/80 border-t border-brand-primary/20 md:hidden">
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              <a href="#" className="block py-2 hover:text-brand-primary">Home</a>
-              <a href="#projects" className="block py-2 hover:text-brand-primary">Info</a>
-              <a href="#gallery" className="block py-2 hover:text-brand-primary">Gallery</a>
-              <a href="#cta" className="block py-2 hover:text-brand-primary">Community</a>
-            </div>
+          <div className="absolute left-0 right-0 top-full bg-black text-brand border-t border-brand-primary/20 md:hidden">
+              <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+                <a href="#" onClick={() => setOpen(false)} className="block py-2 hover:text-brand-primary">Home</a>
+                <a href="#about" onClick={() => setOpen(false)} className="block py-2 hover:text-brand-primary">Info</a>
+                <a href="#gallery" onClick={() => setOpen(false)} className="block py-2 hover:text-brand-primary">Gallery</a>
+                <a href="#cta" onClick={() => setOpen(false)} className="block py-2 hover:text-brand-primary">Community</a>
+              </div>
           </div>
         )}
       </div>

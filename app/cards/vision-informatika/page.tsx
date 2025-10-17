@@ -1,9 +1,5 @@
-import CardPageClient from "@/components/mahasiswa/card-page-client"
+import CardPage from "../[slug]/page"
 
 export default function VisionInformatikaPage() {
-  return (
-    <div className="w-full min-h-screen bg-black">
-      <CardPageClient title="Vision Informatika" />
-    </div>
-  )
+  return <CardPage params={{ slug: 'vision-informatika' }} />
 }

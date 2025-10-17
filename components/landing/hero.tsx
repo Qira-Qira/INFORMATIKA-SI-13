@@ -35,7 +35,7 @@ export default function hero() {
               showCursor={true}
               cursorCharacter="|"
               deletingSpeed={10}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight text-balance neon-glow-primary relative"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight tracking-tight text-balance neon-glow-primary relative font-extrabold"
             />
           </h1>
 
@@ -43,7 +43,7 @@ export default function hero() {
             <TrueFocus
               sentence="Bersama kita bisa Sampean JOS"
               manualMode={false}
-              borderColor="red"
+              borderColor="neon-glow-primary"
               blurAmount={5}
               animationDuration={0.5}
               pauseBetweenAnimations={1}

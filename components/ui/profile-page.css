@@ -32,7 +32,8 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  /* allow vertical panning so the page can scroll on mobile while still enabling pointer interactions */
+  touch-action: pan-y;
 }
 
 .pc-card-wrapper::before {

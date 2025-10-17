@@ -1,9 +1,6 @@
-import CardPageClient from "@/components/mahasiswa/card-page-client"
+import CardPage from "../[slug]/page"
 
 export default function LombaPage() {
-  return (
-    <div className="w-full min-h-screen bg-black">
-      <CardPageClient title="Lomba & Prestasi" />
-    </div>
-  )
+  // delegate to the dynamic card page with the matching slug
+  return <CardPage params={{ slug: 'lomba' }} />
 }

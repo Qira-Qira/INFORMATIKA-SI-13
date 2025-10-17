@@ -1,8 +1,8 @@
 import SiteHeader from "@/components/landing/site-header"
 import Hero from "@/components/landing/hero"
-import About from "@/components/landing/about"
+import About from "@/components/landing/info"
 import Gallery from "@/components/landing/gallery"
-import Credit from "@/components/landing/credit"
+import Credit from "@/components/landing/community"
 
 
 
