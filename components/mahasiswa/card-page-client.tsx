@@ -20,7 +20,7 @@ export default function CardPageClient({ title }: { title: string }) {
 
   <section className="mx-auto px-4 md:px-8 lg:px-0 pt-28 pb-16">
         <h1 className="text-3xl font-bold mb-4 text-white">{title}</h1>
-        <p className="text-brand-fg/80 mb-6">Cari mahasiswa berdasarkan nama. Hasil akan ditampilkan di bawah.</p>
+        <p className="text-white/50 mb-6">Cari mahasiswa berdasarkan nama. Hasil akan ditampilkan di bawah.</p>
 
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center justify-items-center">
           {results.map((s) => {
@@ -36,6 +36,7 @@ export default function CardPageClient({ title }: { title: string }) {
                     miniAvatarUrl={mini}
                     handle={s.handle}
                     name={s.name}
+                    motto={student.motto}
                     title={s.program}
                     contactText={'Follow'}
                     className="max-w-[360px] w-full sm:w-[360px]"
