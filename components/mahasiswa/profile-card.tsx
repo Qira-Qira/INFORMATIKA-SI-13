@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import '../ui/profile-page.css';
 
 interface ProfileCardProps {
@@ -14,7 +13,6 @@ interface ProfileCardProps {
   enableMobileTilt?: boolean;
   mobileTiltSensitivity?: number;
   miniAvatarUrl?: string;
-  motto?: string;
   name?: string;
   title?: string;
   handle?: string;
@@ -58,7 +56,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  motto,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
   handle = 'javicodes',
@@ -280,19 +277,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     onContactClick?.();
   }, [onContactClick]);
 
-  // modal state for showing full motto
-  const [mottoOpen, setMottoOpen] = useState(false);
-  const showMore = Boolean(motto && motto.length > 80);
-
-  useEffect(() => {
-    if (!mottoOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMottoOpen(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [mottoOpen]);
-
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       <section ref={cardRef} className="pc-card">
@@ -359,26 +343,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             <div className="pc-details">
               <h3>{name}</h3>
               <p>{title}</p>
-                {/* motto placed under name/title (single line truncated) */}
-                {motto ? (
-                  <p className="pc-motto" title={motto}>
-                    {showMore ? `${motto.slice(0, 80)}…` : motto}
-                    {showMore && (
-                      <button onClick={() => setMottoOpen(true)} className="pc-motto-more" aria-label="Read more"> More</button>
-                    )}
-                  </p>
-                ) : null}
-
-                {mottoOpen && createPortal(
-                  <div className="pc-motto-modal-overlay" onClick={() => setMottoOpen(false)}>
-                    <div className="pc-motto-modal" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
-                      <button className="pc-motto-modal-close" onClick={() => setMottoOpen(false)} aria-label="Close">×</button>
-                      <h4 className="pc-motto-modal-title">Motto</h4>
-                      <p className="pc-motto-modal-body">{motto}</p>
-                    </div>
-                  </div>,
-                  document.body
-                )}
             </div>
           </div>
         </div>
