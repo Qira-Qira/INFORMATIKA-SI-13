@@ -408,6 +408,66 @@
   -webkit-background-clip: text;
 }
 
+.pc-motto {
+  margin-top: 0.4rem;
+  color: rgba(255,255,255,0.95);
+  font-size: 13px;
+  line-height: 1.25;
+  max-width: 100%;
+  /* allow normal wrapping so long mottos flow downward */
+  white-space: normal;
+  word-break: break-word;
+}
+
+.pc-motto-more {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.85);
+  margin-left: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* modal */
+.pc-motto-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+.pc-motto-modal {
+  background: linear-gradient(180deg, rgba(10,10,20,0.95), rgba(10,10,30,0.95));
+  color: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  max-width: 90vw;
+  width: min(680px, 95%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  position: relative;
+}
+.pc-motto-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.9);
+  font-size: 20px;
+  cursor: pointer;
+}
+.pc-motto-modal-title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+.pc-motto-modal-body {
+  margin: 0;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.5;
+}
+
 .pc-details p {
   font-weight: 600;
   position: relative;
@@ -421,6 +481,43 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+/* Responsive: allow cards to grow vertically on small screens so longer mottos can push content down */
+@media (max-width: 640px) {
+  .pc-card {
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    min-height: 380px; /* keep a decent minimum */
+    overflow: visible; /* allow content to expand without clipping */
+  }
+
+  .pc-avatar-content .avatar {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    bottom: 0;
+    max-height: 40vh;
+  }
+
+  .pc-details {
+    position: relative;
+    top: 0;
+    padding-top: 1.5rem;
+  }
+
+  /* On small screens revert the stacked/grid layout so content flows vertically */
+  .pc-inside,
+  .pc-avatar-content,
+  .pc-content,
+  .pc-details,
+  .pc-user-info {
+    display: block !important;
+    grid-area: auto !important;
+    position: relative !important;
+    transform: none !important;
+  }
 }
 
 @keyframes glow-bg {
@@ -450,9 +547,12 @@
 }
 
 @media (max-width: 768px) {
+  /* allow card to grow vertically on smaller screens so long mottos are not clipped */
   .pc-card {
-    height: 70svh;
-    max-height: 450px;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    min-height: 360px;
   }
 
   .pc-details {
@@ -499,8 +599,10 @@
 
 @media (max-width: 480px) {
   .pc-card {
-    height: 60svh;
-    max-height: 380px;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    min-height: 340px;
   }
 
   .pc-details {
@@ -550,8 +652,10 @@
 
 @media (max-width: 320px) {
   .pc-card {
-    height: 55svh;
-    max-height: 320px;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    min-height: 300px;
   }
 
   .pc-details h3 {
