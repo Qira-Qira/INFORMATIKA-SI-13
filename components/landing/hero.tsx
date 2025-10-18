@@ -43,7 +43,8 @@ export default function hero() {
             <TrueFocus
               sentence="Bersama kita bisa Sampean JOS"
               manualMode={false}
-              borderColor="neon-glow-primary"
+              // use the global brand primary CSS variable so the component shows the neon glow color
+              borderColor="var(--brand-primary)"
               blurAmount={5}
               animationDuration={0.5}
               pauseBetweenAnimations={1}
