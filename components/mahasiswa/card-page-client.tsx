@@ -36,7 +36,6 @@ export default function CardPageClient({ title }: { title: string }) {
                     miniAvatarUrl={mini}
                     handle={s.handle}
                     name={s.name}
-                    motto={student.motto}
                     title={s.program}
                     contactText={'Follow'}
                     className="max-w-[360px] w-full sm:w-[360px]"
@@ -53,5 +52,3 @@ export default function CardPageClient({ title }: { title: string }) {
     </div>
   )
 }
-
-
