@@ -7,6 +7,7 @@ import ProfileCard from "./profile-card"
 
 export default function CardPageClient({ title }: { title: string }) {
   const [query, setQuery] = useState("")
+  const [activeMotto, setActiveMotto] = useState<string | null>(null)
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -31,24 +32,52 @@ export default function CardPageClient({ title }: { title: string }) {
             return (
               
                 <div key={s.id} className="p-2 flex justify-center">
-                  <ProfileCard
-                    avatarUrl={avatar}
-                    miniAvatarUrl={mini}
-                    handle={s.handle}
-                    name={s.name}
-                    title={s.program}
-                    contactText={'Follow'}
-                    className="max-w-[360px] w-full sm:w-[360px]"
-                    showUserInfo={true}
-                    showBehindGradient={true}
-                    behindGradient={'radial-gradient(circle at 20% 20%, rgba(0,255,200,0.15) 0%, rgba(0,0,0,0) 40%), radial-gradient(circle at 80% 80%, rgba(112,69,255,0.12) 0%, rgba(0,0,0,0) 50%)'}
-                    innerGradient={'linear-gradient(180deg, rgba(10,10,30,0.6) 0%, rgba(5,5,15,0.85) 100%)'}
-                  />
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={(e) => {
+                      // ignore clicks originating from the inner contact button so Follow doesn't open the motto modal
+                      const target = e.target as HTMLElement | null
+                      if (target && target.closest && target.closest('.pc-contact-btn')) return
+                      setActiveMotto(student.motto ?? 'Tidak ada motto')
+                    }}
+                    onKeyDown={(e) => {
+                      const target = e.target as HTMLElement | null
+                      if (target && target.closest && target.closest('.pc-contact-btn')) return
+                      if (e.key === 'Enter' || e.key === ' ') setActiveMotto(student.motto ?? 'Tidak ada motto')
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <ProfileCard
+                      avatarUrl={avatar}
+                      miniAvatarUrl={mini}
+                      handle={s.handle}
+                      name={s.name}
+                      title={s.program}
+                      contactText={'Follow'}
+                      className="max-w-[360px] w-full sm:w-[360px]"
+                      showUserInfo={true}
+                      showBehindGradient={true}
+                      behindGradient={'radial-gradient(circle at 20% 20%, rgba(0,255,200,0.15) 0%, rgba(0,0,0,0) 40%), radial-gradient(circle at 80% 80%, rgba(112,69,255,0.12) 0%, rgba(0,0,0,0) 50%)'}
+                      innerGradient={'linear-gradient(180deg, rgba(10,10,30,0.6) 0%, rgba(5,5,15,0.85) 100%)'}
+                    />
+                  </div>
                 </div>
             )
           })}
         </div>
       </section>
+      {activeMotto && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-black/60" onClick={() => setActiveMotto(null)}>
+          <div className="bg-background border p-6 rounded-lg max-w-lg mx-4" onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-xl font-semibold mb-2">Motto</h3>
+            <p className="text-brand-fg/90">{activeMotto}</p>
+            <div className="mt-4 text-right">
+              <button className="px-3 py-1 rounded bg-brand-primary text-black" onClick={() => setActiveMotto(null)}>Tutup</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
