@@ -10,7 +10,7 @@ export default function hero() {
     <>
     <section className="relative w-full h-screen grid place-items-center bg-[url('/hero/all-1.jpg')] bg-cover bg-center">
   {/* overlay: above the background image but below the rays */}
-  <div className="absolute inset-0 bg-black/85 z-0 pointer-events-none" />
+  <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none" />
         <LightRays
           raysOrigin="top-center"
           raysColor="#ffffff"

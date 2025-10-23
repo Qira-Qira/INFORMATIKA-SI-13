@@ -14,6 +14,15 @@ export default function SiteHeader() {
         <div className="flex-1 flex items-center">
           
           <Link href="#home" className="flex items-center gap-3">
+          <div className="relative w-28 sm:w-36 md:w-44 h-12 sm:h-14 md:h-16">
+            <Image
+              src="/logo/logo-uisi.png"
+              alt="Departemen Informatika"
+              fill
+              sizes="(max-width: 640px) 120px, 170px"
+              className="object-contain cursor-pointer"
+            />
+          </div>
             <Image
               src="/logo/logo-informatika.png"
               alt="Departemen Informatika"
