@@ -9,20 +9,12 @@ export default function SiteHeader() {
 
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur supports-[backdrop-filter]:bg-brand/40 bg-brand/60 border-b border-brand-primary/20">
+    <>
+    <header className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur supports-[backdrop-filter]:bg-brand/40  border-b border-brand-primary/20">
       <div className="container mx-auto px-4 h-16 flex items-center">
         <div className="flex-1 flex items-center">
           
           <Link href="#home" className="flex items-center gap-3">
-          <div className="relative w-28 sm:w-36 md:w-44 h-12 sm:h-14 md:h-16">
-            <Image
-              src="/logo/logo-uisi.png"
-              alt="Departemen Informatika"
-              fill
-              sizes="(max-width: 640px) 120px, 170px"
-              className="object-contain cursor-pointer"
-            />
-          </div>
             <Image
               src="/logo/logo-informatika.png"
               alt="Departemen Informatika"
@@ -30,19 +22,20 @@ export default function SiteHeader() {
               height={48}
               className="object-contain h-32 w-auto cursor-pointer"
             />
+          
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm flex-1 justify-center">
           <a href="#" className="hover:text-brand-primary transition-colors">
             Home
           </a>
-          <a href="#about" className="hover:text-brand-primary transition-colors">
+          {/* <a href="#about" className="hover:text-brand-primary transition-colors">
             Info
-          </a>
+          </a> */}
           <a href="#gallery" className="hover:text-brand-primary transition-colors">
             Gallery
           </a>
-          <a href="#cta" className="hover:text-brand-primary transition-colors">
+          <a href="#community" className="hover:text-brand-primary transition-colors">
             Community
           </a>
         </nav>
@@ -80,5 +73,8 @@ export default function SiteHeader() {
         )}
       </div>
     </header>
+    {/* spacer to prevent content jump since header is fixed */}
+    <div className="h-16" aria-hidden />
+    </>
   )
 }

@@ -9,9 +9,9 @@ export default function credit(){
   const [active, setActive] = useState<'discord'|'instagram'|'tiktok'>('discord')
   return(
     <>
-        <section id="cta" className="container mx-auto px-4 py-16 md:py-24">
+        <section id="community" className="container mx-auto px-4 py-16 md:py-24">
           <div className="text-center mb-6">
-            <h2 className="text-3xl md:text-5xl font-extrabold neon-glow-primary">IF SI 13 Community</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-primary">IF SI 13 Community</h2>
             <p className="mt-2 text-brand-fg/80">Bergabunglah dengan komunitas kami untuk terhubung, menjelajahi, dan membentuk masa depan Informatika</p>
             <motion.div className="mt-4 flex items-center justify-center gap-3" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
               <motion.button
@@ -54,7 +54,7 @@ export default function credit(){
                           href="https://discord.com/invite/tnmxwJAkEp"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm bg-indigo-400 text-white hover:bg-indigo-400 neon-border-sm w-full sm:w-auto"
+                          className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm bg-indigo-400 text-white hover:bg-white hover:text-indigo-400 neon-border-sm w-full sm:w-auto"
                         >
                           Join Discord
                         </a>
